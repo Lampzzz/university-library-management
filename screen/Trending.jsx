@@ -1,12 +1,11 @@
-import { Text, View } from "react-native";
-import Search from "../components/Search";
-import Categories from "../components/Categories";
+import { View } from "react-native";
 import Articles from "../components/Articles";
+import Categories from "../components/Categories";
 
-const Trending = () => {
+const Trending = ({ navigation }) => {
   return (
     <View style={{ paddingHorizontal: 10 }}>
-      <Categories />
+      <Categories navigation={navigation} />
       <Articles />
     </View>
   );

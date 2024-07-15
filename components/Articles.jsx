@@ -1,7 +1,6 @@
 import React from "react";
 import {
   ActivityIndicator,
-  ScrollView,
   View,
   StyleSheet,
   Text,
@@ -36,10 +35,15 @@ const Articles = () => {
     <>
       {isLoading && (
         <View style={styles.centerScreen}>
-          <ActivityIndicator color="blue" />
+          <ActivityIndicator color="blue" size="large" />
         </View>
       )}
-      {!isLoading && articles.length === 0 ? (
+      {!isLoading && error && (
+        <View style={styles.centerScreen}>
+          <Text>{error}</Text>
+        </View>
+      )}
+      {!isLoading && !error && articles.length === 0 ? (
         <View style={styles.centerScreen}>
           <Text>No news found</Text>
         </View>

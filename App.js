@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Trending from "./screen/Trending";
-import { Text, View } from "react-native";
+import GetCategory from "./components/GetCategory";
 
 const Stack = createNativeStackNavigator();
 
@@ -10,6 +10,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Trending" component={Trending} />
+        <Stack.Screen name="Category" component={GetCategory} />
       </Stack.Navigator>
     </NavigationContainer>
   );

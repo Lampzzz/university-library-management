@@ -1,6 +1,6 @@
 import { Pressable, ScrollView, View, Text, StyleSheet } from "react-native";
 
-const Categories = () => {
+const Categories = ({ navigation }) => {
   const categories = [
     "Entertainment",
     "Business",
@@ -11,27 +11,35 @@ const Categories = () => {
   ];
 
   return (
-    <View style={{ marginVertical: 5 }}>
-      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-        {categories.map((category, index) => (
-          <Pressable key={index} style={styles.category}>
-            <View>
-              <Text>{category}</Text>
-            </View>
-          </Pressable>
-        ))}
-      </ScrollView>
-    </View>
+    <ScrollView
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      style={styles.container}
+    >
+      {categories.map((category, index) => (
+        <Pressable
+          key={index}
+          style={styles.category}
+          onPress={() =>
+            navigation.navigate("Category", { category: category })
+          }
+        >
+          <Text>{category}</Text>
+        </Pressable>
+      ))}
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   category: {
-    paddingVertical: 8,
-    paddingHorizontal: 10,
-    backgroundColor: "white",
-    marginEnd: 5,
+    borderWidth: 1,
+    padding: 10,
     borderRadius: 5,
+    marginRight: 8,
+  },
+  container: {
+    marginVertical: 10,
   },
 });
 
