@@ -17,8 +17,7 @@ const newsServices = () => {
         `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
       );
 
-      console.log(response.data);
-      setArticles(response.data);
+      setArticles(response.data.articles);
     } catch (err) {
       console.log(err.message);
       setError(err);

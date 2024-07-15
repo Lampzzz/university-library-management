@@ -11,7 +11,7 @@ const Categories = () => {
   ];
 
   return (
-    <View style={{ paddingHorizontal: 5, marginVertical: 10 }}>
+    <View style={{ marginVertical: 5 }}>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         {categories.map((category, index) => (
           <Pressable key={index} style={styles.category}>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 10,
     backgroundColor: "white",
-    marginHorizontal: 5,
+    marginEnd: 5,
     borderRadius: 5,
   },
 });
