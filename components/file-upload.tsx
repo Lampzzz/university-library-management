@@ -172,7 +172,7 @@ const FileUpload = ({
         </div>
       )}
 
-      {file &&
+      {/* {file &&
         (type === "image" ? (
           <IKImage
             alt={file.filePath}
@@ -186,7 +186,7 @@ const FileUpload = ({
             controls={true}
             className="h-96 w-full rounded-xl"
           />
-        ) : null)}
+        ) : null)} */}
     </ImageKitProvider>
   );
 };
