@@ -2,7 +2,7 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
-import BookCoverSvg from "@/components/book-cover-svg";
+import BookCoverSvg from "@/components/book/book-cover-svg";
 import { IKImage } from "imagekitio-next";
 import config from "@/lib/config";
 import Image from "next/image";

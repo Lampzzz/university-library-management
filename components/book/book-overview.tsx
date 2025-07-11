@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import BookCover from "@/components/book-cover";
+import BookCover from "@/components/book/book-cover";
 import BorrowBook from "./barrow-book";
 
 interface Props extends Book {

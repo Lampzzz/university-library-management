@@ -1,12 +1,12 @@
-import BookOverview from "@/components/book-overview";
+import BookOverview from "@/components/book/book-overview";
 import React from "react";
-import BookList from "@/components/book-list";
+import BookList from "@/components/book/book-list";
 import { sampleBooks } from "@/constants";
 
 const Home = () => {
   return (
     <>
-      <BookOverview {...sampleBooks[0]} userId={"" as string} />
+      <BookOverview {...sampleBooks[0]} userId={"1" as string} />
 
       <BookList
         title="Latest Books"
