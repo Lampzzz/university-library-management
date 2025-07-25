@@ -72,42 +72,34 @@ const FileUpload = ({
 
   const onError = (error: any) => {
     console.log(error);
-
-    // toast({
-    //   title: `${type} upload failed`,
-    //   description: `Your ${type} could not be uploaded. Please try again.`,
-    //   variant: "destructive",
-    // });
+    toast(`${type} upload failed`, {
+      description: "Your ${type} could not be uploaded. Please try again.",
+    });
   };
 
   const onSuccess = (res: any) => {
     setFile(res);
     onFileChange(res.filePath);
 
-    // toast({
-    //   title: `${type} uploaded successfully`,
-    //   description: `${res.filePath} uploaded successfully!`,
-    // });
+    toast(`${type} uploaded successfully`, {
+      description: `${res.filePath} uploaded successfully!`,
+    });
   };
 
   const onValidate = (file: File) => {
     if (type === "image") {
       if (file.size > 20 * 1024 * 1024) {
-        // toast({
-        //   title: "File size too large",
-        //   description: "Please upload a file that is less than 20MB in size",
-        //   variant: "destructive",
-        // });
+        toast("File size too large", {
+          description: "Please upload a file that is less than 20MB in size",
+        });
 
         return false;
       }
     } else if (type === "video") {
       if (file.size > 50 * 1024 * 1024) {
-        // toast({
-        //   title: "File size too large",
-        //   description: "Please upload a file that is less than 50MB in size",
-        //   variant: "destructive",
-        // });
+        toast("File size too large", {
+          description: "Please upload a file that is less than 50MB in size",
+        });
         return false;
       }
     }

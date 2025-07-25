@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
+import { signOut } from "@/auth";
 
 export const Header = () => {
   return (
@@ -12,7 +13,14 @@ export const Header = () => {
 
       <ul className="flex flex-row items-center gap-8">
         <li>
-          <form className="mb-10">
+          <form
+            action={async () => {
+              "use server";
+
+              await signOut();
+            }}
+            className="mb-10"
+          >
             <Button>Logout</Button>
           </form>
         </li>
