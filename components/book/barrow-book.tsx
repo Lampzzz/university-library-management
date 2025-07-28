@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { borrowBook } from "@/lib/actions/books";
 
 interface Props {
   userId: string;
@@ -23,7 +24,39 @@ const BorrowBook = ({
   const router = useRouter();
   const [borrowing, setBorrowing] = useState(false);
 
-  const handleBorrowBook = async () => {};
+  const handleBorrowBook = async () => {
+    if (!isEligible) {
+      toast("Error", {
+        description: message,
+      });
+
+      return;
+    }
+
+    setBorrowing(true);
+
+    try {
+      const result = await borrowBook({ bookId, userId });
+
+      if (result.success) {
+        toast("Success", {
+          description: "Book borrowed successfully",
+        });
+
+        router.push("/");
+      } else {
+        toast("Error", {
+          description: result.error,
+        });
+      }
+    } catch (error) {
+      toast("Error", {
+        description: "An error occurred while borrowing the book",
+      });
+    } finally {
+      setBorrowing(false);
+    }
+  };
 
   return (
     <Button
@@ -38,4 +71,5 @@ const BorrowBook = ({
     </Button>
   );
 };
+
 export default BorrowBook;

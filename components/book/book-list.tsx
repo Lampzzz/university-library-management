@@ -1,4 +1,3 @@
-import React from "react";
 import BookCard from "@/components/book/book-card";
 
 interface Props {
