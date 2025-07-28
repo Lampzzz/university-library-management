@@ -53,7 +53,10 @@ const BookOverview = async ({
 
           <div className="flex flex-row gap-1">
             <Image src="/icons/star.svg" alt="star" width={22} height={22} />
-            <p>{rating}</p>
+            <div className="flex">
+              <p className="font-semibold text-primary">{rating}</p>
+              <p>/5</p>
+            </div>
           </div>
         </div>
 
@@ -87,7 +90,7 @@ const BookOverview = async ({
             coverImage={coverUrl}
           />
 
-          <div className="absolute left-16 top-10 rotate-12 opacity-40 max-sm:hidden">
+          <div className="absolute left-16 top-10 rotate-12 opacity-40 max-sm:hidden blur-md">
             <BookCover
               variant="wide"
               coverColor={coverColor}
