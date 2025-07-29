@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { signOut } from "@/auth";
 import { LogOut } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -19,11 +18,11 @@ export const Header = ({ name }: { name: string }) => {
         </div>
       </Link>
 
-      <ul className="flex flex-row items-center gap-8">
+      <ul className="flex flex-row justify-center items-center gap-8">
         <HeaderLink href="/" label="Home" />
         <HeaderLink href="/search" label="Search" />
         <li>
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/profile" className="flex items-center gap-2">
             <Avatar>
               <AvatarFallback className="bg-amber-100">
                 {getInitials(name || "IN")}
@@ -34,13 +33,14 @@ export const Header = ({ name }: { name: string }) => {
         </li>
         <li>
           <form
+            className=""
             action={async () => {
               "use server";
 
               await signOut();
             }}
           >
-            <button className="text-destructive">
+            <button className="text-destructive flex items-center justify-center">
               <LogOut size={20} />
             </button>
           </form>
