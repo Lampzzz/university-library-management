@@ -68,7 +68,7 @@
   }
 
   .book-cover_small {
-    @apply w-[55px] h-[76px];
+    @apply w-[115px] h-[145px];
   }
 
   .book-cover_medium {
