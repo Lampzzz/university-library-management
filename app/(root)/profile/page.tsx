@@ -7,7 +7,7 @@ import { desc, eq, inArray } from "drizzle-orm";
 import Image from "next/image";
 import UniversityCard from "@/components/university-card";
 import ProfileInfo from "@/components/profile-info";
-import { BadgeCheck, BadgeX, BookOpenText, Calendar } from "lucide-react";
+import { BadgeCheck, BadgeX } from "lucide-react";
 import BorrowBookCard from "@/components/book/borrow-book-card";
 import dayjs from "dayjs";
 
@@ -35,7 +35,6 @@ const Page = async () => {
       )
     );
 
-  // Format dates using dayjs
   const formatDate = (date: Date | string) => {
     return dayjs(date).format("MMM DD, YYYY");
   };
